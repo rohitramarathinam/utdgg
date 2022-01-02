@@ -79,7 +79,11 @@ searchForm.addEventListener("submit", function(e){
     for (prof in percentDataByProf){
         var totalPeople = sum(percentDataByProf[prof])
         for (grade in percentDataByProf[prof]){
-            percentDataByProf[prof][grade] = (percentDataByProf[prof][grade]*100.0)/totalPeople 
+            percentDataByProf[prof][grade] = parseInt((percentDataByProf[prof][grade]*100.0)/totalPeople )
         }
     }
+
+    sessionStorage.setItem("percentDataByProf", JSON.stringify(percentDataByProf))
+    sessionStorage.setItem("allGrades", JSON.stringify(allGrades))
+    window.open("chart.html", "_self")
 })
