@@ -19,6 +19,7 @@ for (let index = 0; index < possibleValues.length; index++) {
     
 }
 
+// Found on Highchart website
 
 Highcharts.chart('container', {
     chart: {
@@ -36,6 +37,10 @@ Highcharts.chart('container', {
         text: 'Percent of Students'
       }
     },
+    tooltip: {
+      pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.percentage:.1f}% </b><br/>',
+      shared: false
+  },
     legend: {
       reversed: true
     },
