@@ -1,5 +1,8 @@
 'use strict'
 
+//Intended order of grades
+const gradesOrder = ["A+","A","A-","B+","B","B-","C+","C","C-","D+","D","D-","CR","F","W","NC","I"]
+
 // Sums only the values in a given dictionary
 function sum(dictVals){
     var sum = 0;
@@ -74,6 +77,15 @@ searchForm.addEventListener("submit", function(e){
     // Removes Duplicates from allGrades
 
     allGrades = [...new Set(allGrades)]
+    
+    // Reorders Grades
+    var allGradesFinal = []
+    for (let index = 0; index < gradesOrder.length; index++) {
+        const g = gradesOrder[index];
+        if (allGrades.includes(g)){
+            allGradesFinal.push(g);
+        }        
+    }
 
     // Data is organized by professor and the percent students that recieved each grade
     for (prof in percentDataByProf){
@@ -82,8 +94,8 @@ searchForm.addEventListener("submit", function(e){
             percentDataByProf[prof][grade] = parseInt((percentDataByProf[prof][grade]*100.0)/totalPeople )
         }
     }
-
+    
     sessionStorage.setItem("percentDataByProf", JSON.stringify(percentDataByProf))
-    sessionStorage.setItem("allGrades", JSON.stringify(allGrades))
+    sessionStorage.setItem("allGrades", JSON.stringify(allGradesFinal))
     window.open("chart.html", "_self")
 })

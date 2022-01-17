@@ -1,18 +1,13 @@
-console.log("jello")
+'use strict'
 
 var chartData = JSON.parse(sessionStorage.getItem("percentDataByProf"))
 var possibleValues = JSON.parse(sessionStorage.getItem("allGrades"))
 
-console.log(chartData)
-console.log(possibleValues)
-
-
-
 var seriesData = []
 for (let index = 0; index < possibleValues.length; index++) {
     var grade = possibleValues[index];
-    dataVals = []
-    for (prof in chartData){
+    var dataVals = []
+    for (var prof in chartData){
         if (chartData[prof][grade]) {
             dataVals.push(chartData[prof][grade]);
         }
@@ -24,7 +19,6 @@ for (let index = 0; index < possibleValues.length; index++) {
     
 }
 
-console.log(seriesData)
 
 Highcharts.chart('container', {
     chart: {
