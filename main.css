@@ -42,18 +42,6 @@ li {
     --btnBg: var(--white);
     --btnFontColor: var(--black);
   }
-  
-  .btn {
-    position: absolute;
-    top: 20px;
-    right: 10px;
-    height: 50px;
-    width: 50px;
-    border-radius: 50%;
-    border: none;
-    color: var(--btnFontColor);
-    background-color: var(--btnBg);
-  }
 
   .btn:focus { outline-style: none; }
 
@@ -125,4 +113,16 @@ img {
 /* Temporary change due to unable to see query object text when typing */
 h1{
   color: white;
+}
+input{
+  width: 100vh;
+  height: 7vh;
+  max-height: 4rem;
+  font-size: large;
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  border: 1px solid #2d9fd9;
+  padding: 1.5rem;
 }

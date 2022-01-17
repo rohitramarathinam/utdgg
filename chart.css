@@ -2,13 +2,15 @@
 
 .highcharts-figure,
 .highcharts-data-table table {
-    min-width: 100vh;
-    max-width: 100vh;
+    min-width: 80%;
+    max-width: 80%;
     margin: 1em auto;
+    padding-top: 5%;
 }
 
 #container {
-    height: 400px;
+    min-height: 100%;
+    overflow: scroll;
 }
 
 .highcharts-data-table table {
@@ -45,4 +47,8 @@
 
 .highcharts-data-table tr:hover {
     background: #f1f7ff;
+}
+
+body{
+    background: -moz-linear-gradient(center top, #316494 0%,#366fcd 100%);
 }

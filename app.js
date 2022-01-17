@@ -94,8 +94,11 @@ searchForm.addEventListener("submit", function(e){
             percentDataByProf[prof][grade] = (percentDataByProf[prof][grade]*100.0)/totalPeople
         }
     }
-    
-    sessionStorage.setItem("percentDataByProf", JSON.stringify(percentDataByProf))
+
+    // Sort data by professor last name
+    var percentDataByProfSorted = Object.keys(percentDataByProf).sort().reduce((accumulator, index) => (accumulator[index] = percentDataByProf[index], accumulator), {});
+
+    sessionStorage.setItem("percentDataByProf", JSON.stringify(percentDataByProfSorted))
     sessionStorage.setItem("allGrades", JSON.stringify(allGradesFinal))
     window.open("chart.html", "_self")
 })
